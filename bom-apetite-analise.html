@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bom Apetite - Análise e Estratégia Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #3F3F3F;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #D61504, #A01003);
+            padding: 1rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(214, 21, 4, 0.3);
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 4rem;
+            background: rgba(214, 21, 4, 0.98);
+        }
+
+        .logo-nav {
+            height: 60px;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled .logo-nav {
+            height: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+            transform: translateX(5px);
+        }
+
+        .cta-nav {
+            background: rgb(14, 199, 39);
+            color: #D61504;
+            padding: 0.7rem 1.8rem;
+            border-radius: 25px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .cta-nav:hover {
+            transform: scale(1.08);
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 70vh;
+            background: linear-gradient(135deg, #D61504 0%, #000000 100%);
+            padding: 7rem 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%);
+            background-size: 100px 100px;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            
+        }
+
+        .desktop-badge {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid white;
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .meta-info {
+            color: white;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            max-width: 800px;
+            text-align: center; 
+            
+        }
+
+        /* Section Styles */
+        section {
+            padding: 1.5rem 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #000000;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #D61504, #000000);
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #D61504;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-green {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge-yellow {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .badge-red {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Problem Solution Box */
+        .problem-solution {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 2rem;
+            margin: 2.5rem 0;
+            align-items: center;
+        }
+
+        .problem-box{
+            background: #fff5f5;
+            padding: 2rem;
+            border: 1px solid #D61504;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 5px;
+        }
+
+        .solution-box {
+            background: #ebf8ff;
+            border: 1px solid #416f88;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 5px;
+            padding: 2rem;
+        }
+
+        .problem-box h3, .solution-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #000000;
+        }
+
+        .problem-box ul, .solution-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .problem-box li::before {
+            content: '✗';
+            color: #D61504;
+            font-weight: 700;
+            margin-right: 0.8rem;
+        }
+
+        .solution-box li::before {
+            content: '✓';
+            color: #000000;
+            font-weight: 700;
+            margin-right: 0.8rem;
+        }
+
+        .arrow {
+            font-size: 3rem;
+            color: #D61504;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: rgba(214, 21, 4, 0.05);
+            border-left: 4px solid #D61504;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            /*colocar na mesma linha */
+        }
+
+        .warning-box h3 {
+            color: #D61504;
+            margin-bottom: 1rem;
+        }
+
+        .warning-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .warning-box li::before {
+            content: '✓';
+            color: #D61504;
+            font-weight: 700;
+            margin-right: 0.8rem;
+            
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #D61504, #A01003);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .comparison-table tr.highlight-row {
+            background: rgba(214, 21, 4, 0.1);
+            font-weight: 600;
+        }
+
+        /* Cost Box */
+        .cost-box {
+            background: linear-gradient(135deg, #005694, #018acc);
+            border: 3px solid #000000;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            color: white;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+        }
+
+        .cost-items ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .cost-items li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .cost-items li::before {
+            content: '•';
+            color: #e74c3c;
+            font-size: 1.5rem;
+            margin-right: 0.8rem;
+        }
+
+        .cost-reflection {
+            border-left: 3px solid #e74c3c;
+            padding-left: 2rem;
+        }
+
+        .cost-reflection p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* AIDA Container */
+        /*.aida-container {
+            background: linear-gradient(135deg, #D61504, #000000);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin: 2.5rem 0;
+        }*/
+
+        .aida-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .aida-card {
+                background: linear-gradient(135deg, #750000, #de4701);
+                border: 2px solid rgba(255, 255, 255, 0.3);
+                border-radius: 12px;
+                padding: 2rem;
+                text-align: center;
+                transition: all 0.3s ease;
+                color: white;
+        }
+
+        .aida-card:hover {
+            transform: translateY(-5px);
+            background: 0 8px 25px transparent;
+        }
+
+        .aida-letter {
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Plan Grid */
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .phase-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .phase-card.phase1 {
+            border: 2px solid #e91e63;
+        }
+
+        .phase-card.phase2 {
+            border: 2px solid #019cde;
+        }
+
+        .phase-card h3 {
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+
+        .phase-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .phase-card li::before {
+            content: '✓';
+            color: #D61504;
+            font-weight: 700;
+            margin-right: 0.8rem;
+        }
+
+        /* Value Cards */
+        .value-cards-horizontal {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin: 2rem 0;
+        }
+
+        .value-card-compact {
+            background: white;
+            padding: 1.3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .value-card-compact.highlight {
+            border: 3px solid #D61504;
+        }
+
+        .value-card-compact:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Expectativa Grid */
+        .expectativa-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .expectativa-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .expectativa-card.fase1 {
+            border-left: 4px solid #e91e63;
+        }
+
+        .expectativa-card.fase2 {
+            border-left: 4px solid #f39c12;
+        }
+
+        .expectativa-card.fase3 {
+            border-left: 4px solid #27ae60;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #D61504, #000000);
+            padding: 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-button {
+            background: white;
+            color: #D61504;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 35px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: #000000;
+            color: white;
+            padding: 1.5rem 4rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #D61504, #A01003);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Fade In Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cards-grid,
+            .aida-grid,
+            .plan-grid,
+            .value-cards-horizontal,
+            .expectativa-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .problem-solution {
+                grid-template-columns: 1fr;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+            .cost-box {
+                grid-template-columns: 1fr;
+            }
+
+            nav, section, .hero {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div class="logo-nav" style="color: white; font-weight: 800; font-size: 1.5rem;">BOM APETITE</div>
+        <div class="nav-links">
+            <a href="#analise">Análise da empresa →</a>
+            <a href="#mercado">Pesquisa de mercado →</a>
+            <a href="#concorrentes">Concorrentes →</a>
+            <a href="#estrategias">Estratégias →</a>
+            <a href="#contato" class="cta-nav">Fale conosco</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="desktop-badge">⚠️ Visualização otimizada para Desktop</div>
+            <div class="meta-info">Proposta exclusiva para Matheus H. Ulian • 22 de Dezembro de 2025</div>
+            <h1>Análise e Estratégia Digital</h1>
+            <p class="hero-subtitle">"Você não vende hambúrguer. Você vende aquela recompensa no final do dia, quando a fome encontra o sabor de verdade."</p>
+        </div>
+    </div>
+
+    <!-- Análise da Empresa -->
+    <section id="analise" class="fade-in">
+        <h2 class="section-title">Diagnóstico dos Canais Digitais</h2>
+        
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">📱</div>
+                <h3 class="card-title">Instagram</h3>
+                <div>
+                    <span class="badge badge-green">2.549 seguidores</span>
+                    <span class="badge badge-green">162 posts</span>
+                    <span class="badge badge-red">Engajamento muito baixo (2-12 curtidas/post)</span>
+                </div>
+                <p style="margin-top: 1rem;"><strong>Situação atual:</strong> Presença estabelecida com volume moderado de conteúdo, mas alcance orgânico comprometido.</p>
+                <p style="color: #D61504; font-weight: 600; margin-top: 0.8rem;"><strong>Oportunidade:</strong> Com Reels dinâmicos e conteúdo diversificado (não só fotos de produto), há potencial para aumentar engajamento em 300-500%.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3 class="card-title">Google Meu Negócio</h3>
+                <div>
+                    <span class="badge badge-green">5.0 estrelas</span>
+                    <span class="badge badge-yellow">2 avaliações</span>
+                    <span class="badge badge-red">0 fotos do proprietário</span>
+                    <span class="badge badge-red">0 produtos cadastrados</span>
+                </div>
+                <p style="margin-top: 1rem;"><strong>Situação atual:</strong> Perfil criado mas completamente subotimizado. Avaliação perfeita demonstra qualidade do serviço.</p>
+                <p style="color: #D61504; font-weight: 600; margin-top: 0.8rem;"><strong>Oportunidade:</strong> GMB otimizado tende a gerar 25-40 buscas locais mensais para hamburguerias na região.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3 class="card-title">Presença Digital Geral</h3>
+                <div>
+                    <span class="badge badge-yellow">Sem integração entre canais</span>
+                    <span class="badge badge-red">Sem tráfego pago estruturado</span>
+                    <span class="badge badge-green">Base sólida para escalar</span>
+                </div>
+                <p style="margin-top: 1rem;"><strong>Situação atual:</strong> Canais funcionam de forma isolada, sem estratégia integrada de captação e conversão.</p>
+                <p style="color: #D61504; font-weight: 600; margin-top: 0.8rem;"><strong>Oportunidade:</strong> Com tráfego pago direcionado, pode-se organizar fluxo de pedidos e reduzir dependência de apps (taxa 30%).</p>
+            </div>
+        </div>
+
+        <div class="problem-solution">
+            <div class="problem-box">
+                <h3>❌ Cenário Atual</h3>
+                <ul>
+                    <li>Conteúdo monotemático (só fotos de produto)</li>
+                    <li>Baixo alcance orgânico (2-12 curtidas)</li>
+                    <li>GMB invisível nas buscas locais</li>
+                    <li>Alta dependência de apps (iFood - taxa 30%)</li>
+                    <li>Sem previsibilidade de pedidos</li>
+                </ul>
+            </div>
+            <div class="arrow">→</div>
+            <div class="solution-box">
+                <h3>✅ Cenário com Estratégia</h3>
+                <ul>
+                    <li>Conteúdo AIDA (Reels, carrosséis, bastidores)</li>
+                    <li>Alcance ampliado com tráfego pago estruturado</li>
+                    <li>GMB otimizado = 25-40 buscas/mês</li>
+                    <li>Pedidos diretos via WhatsApp (margem maior)</li>
+                    <li>Fluxo organizado e previsível</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por Que Esta Análise -->
+    <section class="fade-in" style="background: #f9f9f9;">
+        <h2 class="section-title">Por Que Esta Análise Foi Feita Assim?</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">Observei 3 coisas específicas sobre o Bom Apetite:</p>
+
+        <div class="cards-grid">
+            <div class="card">
+                <h3>1. Vocês já têm uma base sólida</h3>
+                <p>2.549 seguidores no Instagram, 5.0 estrelas no Google, operando regularmente (terça a domingo). Isso não é "começar do zero".</p>
+                <p style="font-weight: 600; margin-top: 1rem; color: #D61504;">O problema não é "não ter presença", mas sim reativar essa base com conteúdo estratégico que converte.</p>
+            </div>
+            
+            <div class="card">
+                <h3>2. Seu público é qualificado</h3>
+                <p>Jaboticabal tem 75 mil habitantes, economia baseada em agronegócio e educação. Público de baixa/média renda que busca <strong>valor pelo preço</strong>, não necessariamente "gourmetização".</p>
+                <p style="font-weight: 600; margin-top: 1rem; color: #D61504;">Não precisa de volume gigante, precisa de leads certos que valorizam qualidade e preço justo.</p>
+            </div>
+            
+            <div class="card">
+                <h3>3. Concorrência está dormindo</h3>
+                <p>Analisando os principais concorrentes (Toca do Lanche, Big Box, Super Lanchão), <strong>nenhum usa tráfego pago estruturado</strong> ou estratégia AIDA no Instagram.</p>
+                <p style="font-weight: 600; margin-top: 1rem; color: #D61504;">Enquanto eles dependem só de apps e postam fotos aleatórias, vocês podem profissionalizar e ganhar mercado.</p>
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <h3>💡 Por isso a estratégia foca em:</h3>
+            <ul>
+                <li>✓ Reativar (não começar do zero)</li>
+                <li>✓ Qualificar (não quantidade bruta)</li>
+                <li>✓ Profissionalizar (não improvisar)</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Pesquisa de Mercado -->
+    <section id="mercado" class="fade-in">
+        <h2 class="section-title">Pesquisa de Mercado</h2>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Perfil do Cliente Ideal</h3>
+                <p><strong>Lucas, 23-35 anos</strong> - Trabalha durante a semana (CLT/freelancer), renda média, região urbana. Busca conveniência e qualidade.</p>
+                <p style="margin-top: 1rem;"><strong>Motivadores:</strong> Preço justo, quantidade percebida, rapidez na entrega, avaliações reais.</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">💰</div>
+                <h3>Números do Mercado</h3>
+                <p><strong>Ticket médio local:</strong> R$ 30-45 (combo completo)</p>
+                <p><strong>Pico de consumo:</strong> Quinta a domingo, 18h-23h</p>
+                <p><strong>CAC médio delivery:</strong> R$ 8-15 por pedido</p>
+                <p><strong>Margem típica sem app:</strong> 35-45%</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">📈</div>
+                <h3>Janela de Oportunidade</h3>
+                <p><strong>Por que AGORA:</strong> Delivery se consolidou pós-pandemia, mas concorrência local ainda não profissionalizou marketing digital.</p>
+                <p style="margin-top: 1rem; color: #D61504; font-weight: 600;">Mercado existe, público compra, mas falta estratégia. Quem se antecipar domina.</p>
+            </div>
+        </div>
+
+        <div style="background: rgba(214, 21, 4, 0.05); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+            <h3 style="color: #D61504; margin-bottom: 1rem;">💡 Insight de Mercado</h3>
+            <p style="font-size: 1.1rem;"><strong>"O cliente não compra o 'melhor hambúrguer', compra o que entrega mais valor pelo preço naquele momento."</strong></p>
+            <p style="margin-top: 1rem;">Isso significa: oferta clara > estética complexa | preço justo > gourmetização exagerada | entrega rápida > promessas vazias</p>
+        </div>
+    </section>
+
+    <!-- Benchmark Competitivo -->
+    <section id="concorrentes" class="fade-in" style="background: #f9f9f9;">
+        <h2 class="section-title">Benchmark Competitivo</h2>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Hamburgueria</th>
+                    <th>Nota Google</th>
+                    <th>Avaliações</th>
+                    <th>Instagram Ativo</th>
+                    <th>Tráfego Pago</th>
+                    <th>Observação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Toca do Lanche</td>
+                    <td>4.5 ⭐</td>
+                    <td>201</td>
+                    <td>Sim</td>
+                    <td>❌</td>
+                    <td>Forte em engajamento orgânico, mas sem anúncios estruturados</td>
+                </tr>
+                <tr>
+                    <td>Big Box Lanches</td>
+                    <td>4.7 ⭐</td>
+                    <td>115</td>
+                    <td>Moderado</td>
+                    <td>❌</td>
+                    <td>Alta nota, presença em redes, mas sem estratégia de conversão</td>
+                </tr>
+                <tr>
+                    <td>Super Lanchão</td>
+                    <td>4.5 ⭐</td>
+                    <td>86</td>
+                    <td>Sim</td>
+                    <td>❌</td>
+                    <td>Foco em lanches variados, sem especialização em hambúrguer</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>BOM APETITE</strong></td>
+                    <td><strong>5.0 ⭐</strong></td>
+                    <td><strong>2</strong></td>
+                    <td><strong>Sim (2.549 seguidores)</strong></td>
+                    <td>❌ (Oportunidade)</td>
+                    <td><strong>Avaliação perfeita, base estabelecida, pronto para escalar</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning-box">
+            <h3>🎯 Insight Competitivo</h3>
+            <p>Analisando a concorrência em Jaboticabal, quase nenhuma hamburgueria local usa tráfego pago estruturado ou aplica funil AIDA no Instagram. A batalha é travada apenas em "postar foto de lanche" e depender de apps.</p>
+            <p style="margin-top: 1rem; font-weight: 600;">O Bom Apetite tem pouca avaliação no Google o que é esperado para a plataforma e uma base de 2.549 seguidores pronta para ser reativada. Com estratégia profissional, há potencial claro para liderar o mercado local.</p>
+        </div>
+    </section>
+
+    <!-- Custo da Inação -->
+    <section class="fade-in">
+        <h2 class="section-title">O Custo Silencioso de Não Agir</h2>
+
+        <div class="cost-box">
+            <div class="cost-items">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem;">⏰ O CUSTO DA INAÇÃO</h3>
+                <ul>
+                    <li>📉 <strong>Instagram com 2.549 seguidores sem estratégia:</strong> Potencial de 50-100 leads/mês </li>
+                    <li>💰 <strong>GMB invisível:</strong> Para esse ramo não é mais tão comum buscas no Google, mas é melhor ter e não precisar, do que precisar e não ter!</li>
+                    <li>📊 <strong>Possibilidade:</strong> 50 - 100 leads * Ticket médio de $60= $300 a $600/mês na mesa</li>
+                    <li>🎯 <strong>Sem tráfego pago:</strong> Concorrentes já estão na frente, chegou a sua vez! </li>
+                </ul>
+            </div>
+            <div class="cost-reflection">
+                <p style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem;">A pergunta não é: "Preciso decidir agora?"</p>
+                <p style="font-size: 1.2rem;">E sim: <strong>"Quanto tempo mais vou deixar essas oportunidades na mesa?"</strong></p>
+                <p style="margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.9;">Nota: Números baseados em benchmarks de hamburguerias similares em cidades médias do interior de SP (2024-2025). Não são garantias, mas projeções conservadoras.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Método AIDA -->
+    <section id="estrategias" class="fade-in" style="background: #f9f9f9;">
+        <h2 class="section-title">Método AIDA para Instagram</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">Estratégia completa de conteúdo que guia o cliente desde a descoberta até o pedido:</p>
+
+        <div class="aida-container">
+            <div class="aida-grid">
+                <div class="aida-card">
+                    <div class="aida-letter">A</div>
+                    <h3 style="margin-bottom: 1rem;">ATENÇÃO</h3>
+                    <p><strong>Como:</strong> Objetivo: Aumentar alcance e atrair novos seguidores</p> <br>
+                    <p>Reels dinâmicos: Preparo ASMR, "por trás das câmeras", áudios em alta. Objetivo: aumentar alcance orgânico.</p>
+                </div>
+                <div class="aida-card">
+                    <div class="aida-letter">I</div>
+                    <h3 style="margin-bottom: 1rem;">INTERESSE</h3>
+                    <p><strong>Como:</strong> Objetivo: Educar e posicionar como autoridade</p> <br>
+                    <p>Carrosséis educativos: "Por que nosso hambúrguer?", qualidade dos ingredientes, bastidores da produção.</p>
+                </div>
+                <div class="aida-card">
+                    <div class="aida-letter">D</div>
+                    <h3 style="margin-bottom: 1rem;">DESEJO</h3>
+                    <p><strong>Como:</strong> Objetivo: Converter interesse em desejo de compra</p> <br>
+                    <p>Prova social em vídeo: Depoimentos reais, slow motion do queijo derretendo, ofertas de escassez.</p>
+                </div>
+                <div class="aida-card">
+                    <div class="aida-letter">A</div>
+                    <h3 style="margin-bottom: 1rem;">AÇÃO</h3>
+                    <p><strong>Como:</strong> Objetivo: Facilitar conversão imediata</p> <br>
+                    <p>CTAs claros: "Peça Agora" + WhatsApp, posts de cardápio com preços, promoções diretas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="warning-box" style="margin-top: 2rem;">
+            <h3>📱 Implementação Prática</h3>
+            <p><strong>Frequência recomendada:</strong> 1-2 Reels/semana (fase Atenção) + 1 Carrossel educativo/semana (fase Interesse) + 1 Reels de montagem do Hamburguer (fase desejo) + Posts de produto/oferta (fase Ação)</p>
+            <p style="margin-top: 1rem;">Com essa estrutura, há potencial para aumentar engajamento de 2-12 curtidas para 50-150+ curtidas por post em 60-90 dias.</p>
+            <p> <strong>"As pessoas comem com os olhos primeiro depois com a boca" ➡️ Gere desejo primeiro, depois venda!</strong></p>
+        </div>
+    </section>
+
+    <!-- Ideias de Anúncios -->
+    <section class="fade-in">
+        <h2 class="section-title">Ideias de Anúncios (Meta e Google)</h2>
+
+        <h3 style="font-size: 1.5rem; margin: 2rem 0 1rem; color: #D61504;">🎥 Reels para Tráfego Pago</h3>
+        <div class="cards-grid">
+            <div class="card">
+                <h3>"O hambúrguer que resolve sua noite"</h3>
+                <p><strong>Cenas:</strong> Close da carne na chapa, queijo derretendo em slow motion, montagem do lanche.</p>
+                <p style="margin-top: 0.8rem;"><strong>Copy:</strong> "Sabe quando bate aquela fome à noite... e você só quer comer algo bom de verdade? Combo por preço de bairro."</p>
+                <p style="margin-top: 0.8rem; color: #D61504; font-weight: 600;">Objetivo: Conversão direta (fundo de funil)</p>
+            </div>
+
+            <div class="card">
+                <h3>"Aqui não tem enganação"</h3>
+                <p><strong>Cenas:</strong> Carne crua sendo moldada, ingredientes simples, chapa quente, montagem com calma.</p>
+                <p style="margin-top: 0.8rem;"><strong>Copy:</strong> "Aqui o hambúrguer não vem congelado. Não tem truque. É feito na hora."</p>
+                <p style="margin-top: 0.8rem; color: #D61504; font-weight: 600;">Objetivo: Gerar confiança (topo de funil disfarçado)</p>
+            </div>
+
+            <div class="card">
+                <h3>"Preço justo, lanche caprichado"</h3>
+                <p><strong>Cenas:</strong> Tamanho do lanche, batata cheia, queijo esticando.</p>
+                <p style="margin-top: 0.8rem;"><strong>Copy:</strong> "Não precisa pagar caro pra comer bem. Hoje tem promoção no delivery."</p>
+                <p style="margin-top: 0.8rem; color: #D61504; font-weight: 600;">Objetivo: Quebrar objeção de preço</p>
+            </div>
+        </div>
+
+        <h3 style="font-size: 1.5rem; margin: 2rem 0 1rem; color: #000000;">📸 Carrosséis e Estáticos</h3>
+        <div class="cards-grid">
+            <div class="card">
+                <h3>Carrossel: "Olha isso de perto"</h3>
+                <p>5 slides: Carne suculenta → Queijo derretendo → Hambúrguer montado → Batata crocante → Combo completo</p>
+                <p style="margin-top: 0.8rem;"><strong>Copy:</strong> "Se você está vendo isso com fome, já sabe o que fazer. 👉 Peça agora"</p>
+            </div>
+
+            <div class="card">
+                <h3>Estático: "Fome não espera"</h3>
+                <p>Close do hambúrguer cortado, queijo escorrendo. Design limpo com CTA claro.</p>
+                <p style="margin-top: 0.8rem;"><strong>Copy:</strong> "Hambúrguer artesanal de bairro. Preço justo. Sabor de verdade."</p>
+            </div>
+
+            <div class="card">
+                <h3>Prova Social: "Quem come, volta"</h3>
+                <p>Cliente real segurando o lanche (sem pose forçada).</p>
+                <p style="margin-top: 0.8rem;"><strong>Copy:</strong> "O hambúrguer favorito do bairro. Pede e confere."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plano Estratégico -->
+    <section class="fade-in" style="background: #f9f9f9;">
+        <h2 class="section-title">Plano Estratégico de Implementação</h2>
+
+        <div class="plan-grid">
+            <div class="phase-card phase1">
+                <h3>📍 FASE 1: Estruturação (0-30 dias)</h3>
+                <ul style="margin-top: 1rem;">
+                    <li>Otimizar Google Meu Negócio (fotos, produtos, descrição SEO)</li>
+                    <li>Estruturar Instagram com conteúdo AIDA</li>
+                    <li>Configurar Pixel do Facebook e Google Analytics</li>
+                    <li>Estabelecer baseline de métricas</li>
+                    <li>Criar campanhas de tráfego pago (Meta Ads + Google)</li>
+                </ul>
+                <p style="margin-top: 1.5rem; color: #D61504; font-weight: 600;">Meta: Infraestrutura digital profissional funcionando</p>
+            </div>
+
+            <div class="phase-card phase2">
+                <h3>🚀 FASE 2: Consolidação (30-90 dias)</h3>
+                <ul style="margin-top: 1rem;">
+                    <li>Escalar tráfego pago com orçamento otimizado</li>
+                    <li>Implementar remarketing (quem visitou perfil/site)</li>
+                    <li>Criar fluxo de atendimento via WhatsApp Business</li>
+                    <li>Analisar métricas e otimizar campanhas</li>
+                    <li>Aumentar volume de conteúdo orgânico (3-4x/semana)</li>
+                </ul>
+                <p style="margin-top: 1.5rem; color: #000000; font-weight: 600;">Meta: Fluxo previsível de 50-100 leads qualificados/mês</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clareza de Valor -->
+    <section class="fade-in">
+        <h2 class="section-title">Clareza de Valor</h2>
+
+        <div class="warning-box">
+            <h3>⚠️ AVISO IMPORTANTE</h3>
+            <p>Os números abaixo são BENCHMARKS de mercado baseados em hamburguerias similares em cidades médias do interior de SP (2024-2025). <strong>NÃO são promessas</strong>. Resultados dependem de execução consistente, qualidade operacional e mercado local. Transparência total.</p>
+        </div>
+
+        <h3 style="font-size: 1.4rem; margin: 2rem 0 1rem;">💰 O Que Cada Canal Pode Trazer</h3>
+        <div class="value-cards-horizontal">
+            <div class="value-card-compact">
+                <h4 style="color: #000000; margin-bottom: 0.8rem;">Instagram Profissional</h4>
+                <p><strong>Conteúdo AIDA + Reels:</strong> Potencial para aumentar alcance de 500-800 impressões/semana para 3.000-5.000+ impressões/semana.</p>
+                <p style="margin-top: 0.8rem; font-size: 0.9rem; color: #666;">Base: Perfis otimizados ganham 5-8x mais alcance orgânico</p>
+            </div>
+
+            <div class="value-card-compact">
+                <h4 style="color: #000000; margin-bottom: 0.8rem;">Google Meu Negócio</h4>
+                <p><strong>GMB otimizado:</strong> Benchmarks indicam 25-40 buscas locais mensais para hamburguerias em cidades similares.</p>
+                <p style="margin-top: 0.8rem; font-size: 0.9rem; color: #666;">Conversão típica: 20-30% = 5-12 pedidos/mês</p>
+            </div>
+
+            <div class="value-card-compact highlight">
+                <h4 style="color: #D61504; margin-bottom: 0.8rem;">🎯 Anúncios Pagos (DESTAQUE)</h4>
+                <p><strong>Meta Ads + Google:</strong> Investimento de R$ 800-1.200/mês tende a gerar 80-150 leads qualificados.</p>
+                <p style="margin-top: 0.8rem; font-size: 0.9rem; color: #666;">CAC médio: R$ 8-12 por lead | Conversão: 15-25%</p>
+            </div>
+        </div>
+
+        <div style="background: rgba(214, 21, 4, 0.08); padding: 2rem; border-radius: 12px; margin-top: 2.5rem;">
+            <h3 style="color: #D61504; margin-bottom: 1.5rem; font-size: 1.4rem;">📊 Projeção de ROI (Cenário Conservador)</h3>
+            
+            <p style="margin-bottom: 1rem;"><strong>Investimento: R$ 1.200/mês em tráfego pago</strong></p>
+            <ul style="list-style: none; padding-left: 0;">
+                <li>→ 120 leads brutos × 70% qualificados = 84 leads bons</li>
+                <li>→ 84 leads × 20% conversão = 17 pedidos/mês</li>
+                <li>→ 17 pedidos × R$ 40 (ticket médio) = R$ 680/mês</li>
+                <li>→ <strong>ROI: Negativo no primeiro mês (fase de teste e otimização)</strong></li>
+            </ul>
+            
+            <p style="margin-top: 1.5rem; margin-bottom: 1rem;"><strong>Cenário Otimista (60-90 dias com otimização):</strong></p>
+            <ul style="list-style: none; padding-left: 0;">
+                <li>→ CAC reduzido para R$ 7-8 por lead (otimização de campanhas)</li>
+                <li>→ Conversão aumentada para 25-30% (público aquecido)</li>
+                <li>→ 150 leads × 28% conversão = 42 pedidos/mês</li>
+                <li>→ 42 pedidos × R$ 40 = R$ 1.680/mês</li>
+                <li>→ <strong>ROI: 1.4x (viabilidade com margem de 35-40%)</strong></li>
+            </ul>
+            
+            <p style="margin-top: 1.5rem; font-style: italic; color: #666; font-size: 0.95rem;">* Projeção baseada em dados reais de hamburguerias em cidades similares (2024-2025). Não é promessa. Sucesso depende de execução, qualidade operacional e consistência.</p>
+        </div>
+
+        <h3 style="font-size: 1.4rem; margin: 2.5rem 0 1rem;">⏱ Expectativa Realista de Resultados</h3>
+        <div class="expectativa-grid">
+            <div class="expectativa-card fase1">
+                <h4 style="color: #e91e63; margin-bottom: 1rem;">Meses 1-2: Estruturação</h4>
+                <p>Configuração de campanhas, teste de públicos, otimização de criativos. Resultados ainda inconsistentes.</p>
+                <p style="margin-top: 0.8rem; font-weight: 600;">Meta: Aprender o que funciona</p>
+            </div>
+
+            <div class="expectativa-card fase2">
+                <h4 style="color: #f39c12; margin-bottom: 1rem;">Meses 3-6: Consolidação</h4>
+                <p>Campanhas otimizadas, público aquecido, remarketing ativo. Fluxo de pedidos começa a estabilizar.</p>
+                <p style="margin-top: 0.8rem; font-weight: 600;">Meta: 50-100 leads/mês</p>
+            </div>
+
+            <div class="expectativa-card fase3">
+                <h4 style="color: #27ae60; margin-bottom: 1rem;">Mês 6+: Crescimento</h4>
+                <p>Estratégia madura, público fiel, remarketing eficiente. Resultados previsíveis e escaláveis.</p>
+                <p style="margin-top: 0.8rem; font-weight: 600;">Meta: 100-150+ leads/mês</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="contato" class="cta-section fade-in">
+        <h2>Próximos Passos</h2>
+        <p>Esta análise está pronta. As oportunidades estão mapeadas. A estratégia está desenhada.</p>
+        <p style="margin-top: 1rem;">A pergunta agora é: quando começamos a implementar?</p>
+        <a href="https://wa.me/5516981005730?text=Olá,%20vi%20a%20análise%20do%20Bom%20Apetite%20e%20gostaria%20de%20conversar%20sobre%20implementação" class="cta-button" target="_blank">💬 Conversar sobre implementação</a>
+        <p style="margin-top: 2rem; font-size: 0.95rem; opacity: 0.9;">15-20 minutos. Sem compromisso. Apenas conversa profissional.</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.8;">Resultados variam conforme execução, consistência e contexto de mercado local. Transparência total.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>2025 Proposta para o <strong>Bom Apetite</strong> por <span style="color: #e2bc14; font-weight: 700;">William F. Betioli</span> | Gestor de tráfego</p>
+        <p style="margin-top: 0.5rem;"><a href="https://instagram.com/bms_trafego" target="_blank">@bms_trafego</a></p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <script>
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Back to Top Click
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Fade In Animation on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
