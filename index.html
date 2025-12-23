@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bom Apetite - Análise e Estratégia Digital</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="image/image.png" type="image/png">
     <style>
         * {
             margin: 0;
@@ -40,13 +41,28 @@
             background: rgba(214, 21, 4, 0.98);
         }
 
+        /* Logo dentro do Navbar */
         .logo-nav {
-            height: 60px;
-            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            height: 60px;               /* altura base do logo dentro do nav */
+            transition: height 0.25s ease;
         }
 
+        .logo-nav img {
+            height: 100%;               /* ocupa a altura da .logo-nav */
+            width: auto;
+            max-height: 60px;
+            display: block;
+        }
+
+        /* Estado quando o navbar encolhe ao rolar */
         nav.scrolled .logo-nav {
             height: 50px;
+        }
+
+        nav.scrolled .logo-nav img {
+            max-height: 50px;
         }
 
         .nav-links {
@@ -712,7 +728,9 @@
 
     <!-- Navbar -->
     <nav id="navbar">
-        <div class="logo-nav" style="color: white; font-weight: 800; font-size: 1.5rem;">BOM APETITE</div>
+        <a href="#top" class="logo-nav" aria-label="Bom Apetite - Início">
+    <img src="image/image.png" alt="Logo Bom Apetite">
+            </a>
         <div class="nav-links">
             <a href="#analise">Análise da empresa →</a>
             <a href="#mercado">Pesquisa de mercado →</a>
