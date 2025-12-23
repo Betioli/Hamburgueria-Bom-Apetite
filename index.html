@@ -303,34 +303,53 @@
             font-size: 3rem;
             color: #D61504;
         }
+/* Warning Box */
+.warning-box {
+    background: rgba(214, 21, 4, 0.05);
+    border-left: 4px solid #D61504;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    overflow-x: auto; /* permite scroll horizontal se necessário */
+}
 
-        /* Warning Box */
-        .warning-box {
-            background: rgba(214, 21, 4, 0.05);
-            border-left: 4px solid #D61504;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-            /*colocar na mesma linha */
-        }
+.warning-box h3 {
+    color: #D61504;
+    margin-bottom: 1rem;
+}
 
-        .warning-box h3 {
-            color: #D61504;
-            margin-bottom: 1rem;
-        }
+.warning-box ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    flex-wrap: nowrap; /* mantém tudo em uma linha no desktop */
+}
 
-        .warning-box ul {
-            list-style: none;
-            padding-left: 0;
-        }
+.warning-box li {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    white-space: nowrap;
+}
 
-        .warning-box li::before {
-            content: '✓';
-            color: #D61504;
-            font-weight: 700;
-            margin-right: 0.8rem;
-            
-        }
+.warning-box li::before {
+    content: '✓';
+    color: #D61504;
+    font-weight: 700;
+    margin-right: 0.6rem;
+}
+
+/* Responsivo: em telas pequenas os itens empilham */
+@media (max-width: 768px) {
+    .warning-box ul {
+        flex-direction: column;
+        gap: 0.6rem;
+        align-items: flex-start;
+    }
+}
 
         /* Comparison Table */
         .comparison-table {
