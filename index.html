@@ -548,6 +548,34 @@
         .expectativa-card.fase3 {
             border-left: 4px solid #27ae60;
         }
+        /* Projeção Grid */
+        .Projection-grid {
+            display: grid;
+            height: auto;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .Projection-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .Projection-card.fase1 {
+            border-left: 4px solid #e91e63;
+        }
+
+        .Projection-card.fase2 {
+            border-left: 4px solid #f39c12;
+        }
+
+        .Projection-card.fase3 {
+            border-left: 4px solid #27ae60;
+        }
+
+        
 
         /* CTA Section */
         .cta-section {
@@ -1162,62 +1190,66 @@
             </div>
         </div>
 
-        <div style="background: rgba(214, 21, 4, 0.08); padding: 2rem; border-radius: 12px; margin-top: 2.5rem;">
-            <h3 style="color: #D61504; margin-bottom: 1.5rem; font-size: 1.4rem;">📊 Projeção de Retorno (Baseada em Benchmarks)</h3>
-            
-            <p style="margin-bottom: 1.5rem; font-size: 1.05rem;"><strong>Investimento: R$ 600/mês em tráfego pago</strong></p>
-            
-            <p style="margin-bottom: 1rem; font-weight: 600; font-size: 1.1rem;">O que esperar nos primeiros 90 dias:</p>
-            
-            <div style="background: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid #e91e63;">
-                <h4 style="color: #e91e63; margin-bottom: 1rem; font-size: 1.1rem;">FASE 1 (Mês 1-2): Estruturação e Teste( isso é uma previsão e não promessa)</h4>
-                <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
-                    <li style="margin-bottom: 0.5rem;">→ 80-100 leads qualificados/mês</li>
-                    <li style="margin-bottom: 0.5rem;">→ 16-20 pedidos extras gerados (20% conversão)</li>
-                    <li style="margin-bottom: 0.5rem;">→ 20 pedidos × R$ 60 = R$ 1.200 em receita adicional</li>
-                    <li style="margin-bottom: 0.5rem;"><strong>→ ROI: 0.8x (quase empata, mas constrói audiência)</strong></li>
-                </ul>
-                <p style="margin-top: 1rem; font-weight: 600; color: #e91e63; font-size: 0.95rem;">Objetivo: Aprender qual público converte melhor e validar operação</p>
-            </div>
+        <div class="Projection">
+            <div style="background: rgba(214, 21, 4, 0.08); padding: 2rem; border-radius: 12px; margin-top: 2.5rem;">
+                <h3 style="color: #D61504; margin-bottom: 1.5rem; font-size: 1.4rem;">📊 Projeção de Retorno (Baseada em Benchmarks)</h3>
+                
+                <p style="margin-bottom: 1.5rem; font-size: 1.05rem;"><strong>Investimento: R$ 600/mês em tráfego pago</strong></p>
+                
+                <p style="margin-bottom: 1rem; font-weight: 600; font-size: 1.1rem;">O que esperar nos primeiros 90 dias:</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 1.2rem 1.2rem;">
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #e91e63; width: 100%; display: flex; flex-direction: column;">
+                        <h4 style="color: #e91e63; margin-bottom: 1rem; font-size: 1.1rem;">FASE 1 (Mês 1-2): Estruturação e Teste( isso é uma previsão e não promessa)</h4>
+                        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+                            <li style="margin-bottom: 0.5rem;">→ 80-100 leads qualificados/mês</li>
+                            <li style="margin-bottom: 0.5rem;">→ 16-20 pedidos extras gerados (20% conversão)</li>
+                            <li style="margin-bottom: 0.5rem;">→ 20 pedidos × R$ 60 = R$ 1.200 em receita adicional</li>
+                            <li style="margin-bottom: 0.5rem;"><strong>→ ROI: 0.8x (quase empata, mas constrói audiência)</strong></li>
+                        </ul>
+                        <p style="margin-top: 1rem; font-weight: 600; color: #e91e63; font-size: 0.95rem;">Objetivo: Aprender qual público converte melhor e validar operação</p>
+                    </div>
 
-            <div style="background: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid #f39c12;">
-                <h4 style="color: #f39c12; margin-bottom: 1rem; font-size: 1.1rem;">FASE 2 (Mês 3-6): Otimização e Crescimento</h4>
-                <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
-                    <li style="margin-bottom: 0.5rem;">→ 120-150 leads qualificados/mês (campanhas refinadas)</li>
-                    <li style="margin-bottom: 0.5rem;">→ 34-42 pedidos extras gerados (28% conversão)</li>
-                    <li style="margin-bottom: 0.5rem;">→ 40 pedidos × R$ 60 = R$ 2.400 em receita adicional</li>
-                    <li style="margin-bottom: 0.5rem;">→ Margem 40%: R$ 960 lucro líquido</li>
-                    <li style="margin-bottom: 0.5rem;"><strong>→ ROI: 1.6x (lucro real de R$ 360/mês)</strong></li>
-                </ul>
-                <p style="margin-top: 1rem; font-weight: 600; color: #f39c12; font-size: 0.95rem;">Objetivo: Estabilizar fluxo e aumentar ticket médio</p>
-            </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #f39c12; width: 100%; display: flex; flex-direction: column;">
+                        <h4 style="color: #f39c12; margin-bottom: 1rem; font-size: 1.1rem;">FASE 2 (Mês 3-6): Otimização e Crescimento</h4>
+                        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+                            <li style="margin-bottom: 0.5rem;">→ 120-150 leads qualificados/mês (campanhas refinadas)</li>
+                            <li style="margin-bottom: 0.5rem;">→ 34-42 pedidos extras gerados (28% conversão)</li>
+                            <li style="margin-bottom: 0.5rem;">→ 40 pedidos × R$ 60 = R$ 2.400 em receita adicional</li>
+                            <li style="margin-bottom: 0.5rem;">→ Margem 40%: R$ 960 lucro líquido</li>
+                            <li style="margin-bottom: 0.5rem;"><strong>→ ROI: 1.6x (lucro real de R$ 360/mês)</strong></li>
+                        </ul>
+                        <p style="margin-top: 1rem; font-weight: 600; color: #f39c12; font-size: 0.95rem;">Objetivo: Estabilizar fluxo e aumentar ticket médio</p>
+                    </div>
 
-            <div style="background: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid #27ae60;">
-                <h4 style="color: #27ae60; margin-bottom: 1rem; font-size: 1.1rem;">FASE 3 (Mês 6+): Escala Sustentável</h4>
-                <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
-                    <li style="margin-bottom: 0.5rem;">→ 160-200 leads qualificados/mês</li>
-                    <li style="margin-bottom: 0.5rem;">→ 50-60 pedidos extras gerados (30% conversão)</li>
-                    <li style="margin-bottom: 0.5rem;">→ 55 pedidos × R$ 60 = R$ 3.300 em receita adicional</li>
-                    <li style="margin-bottom: 0.5rem;">→ Margem 40%: R$ 1.320 lucro líquido</li>
-                    <li style="margin-bottom: 0.5rem;"><strong>→ ROI: 2.2x (lucro real de R$ 720/mês)</strong></li>
-                </ul>
-                <p style="margin-top: 1rem; font-weight: 600; color: #27ae60; font-size: 0.95rem;">Objetivo: Previsibilidade e crescimento consistente</p>
-            </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #27ae60; height: 100%; width: 100%; display: flex; flex-direction: column; grid-column: 1; grid-row: 2;">
+                        <h4 style="color: #27ae60; margin-bottom: 1rem; font-size: 1.1rem;">FASE 3 (Mês 6+): Escala Sustentável</h4>
+                        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+                            <li style="margin-bottom: 0.5rem;">→ 160-200 leads qualificados/mês</li>
+                            <li style="margin-bottom: 0.5rem;">→ 50-60 pedidos extras gerados (30% conversão)</li>
+                            <li style="margin-bottom: 0.5rem;">→ 55 pedidos × R$ 60 = R$ 3.300 em receita adicional</li>
+                            <li style="margin-bottom: 0.5rem;">→ Margem 40%: R$ 1.320 lucro líquido</li>
+                            <li style="margin-bottom: 0.5rem;"><strong>→ ROI: 2.2x (lucro real de R$ 720/mês)</strong></li>
+                        </ul>
+                        <p style="margin-top: 1rem; font-weight: 600; color: #27ae60; font-size: 0.95rem;">Objetivo: Previsibilidade e crescimento consistente</p>
+                    </div>
 
-            <div style="background: rgba(214, 21, 4, 0.05); padding: 1.5rem; border-radius: 8px; border-left: 4px solid #D61504;">
-                <p style="font-weight: 600; margin-bottom: 0.8rem; color: #D61504;">💡 Por que R$ 600/mês (e não R$ 1.200)?</p>
-                <p style="margin-bottom: 1rem;">Ticket médio de R$ 30-60 exige <strong>volume</strong> para justificar investimento alto. R$ 600/mês permite <strong>testar com baixo risco</strong>, validar conversão real, e escalar conforme capacidade operacional.</p>
-                <p style="margin-bottom: 1rem;">Nos primeiros 60 dias, o investimento pode não gerar lucro líquido alto, <strong>MAS</strong> você constrói:</p>
-                <ul style="list-style: none; padding-left: 1rem;">
-                    <li style="margin-bottom: 0.5rem;">✓ Audiência qualificada (retargeting futuro)</li>
-                    <li style="margin-bottom: 0.5rem;">✓ Dados de público (quem converte melhor)</li>
-                    <li style="margin-bottom: 0.5rem;">✓ Posicionamento digital (top of mind local)</li>
-                    <li style="margin-bottom: 0.5rem;">✓ Infraestrutura de captação escalável</li>
-                </ul>
-                <p style="font-weight: 600; font-size: 1.05rem; margin-top: 1rem;">Tráfego pago não é "gastar dinheiro", é <span style="color: #D61504;">investir em infraestrutura de captação de clientes</span>.</p>
+                    <div style="background: rgba(214, 21, 4, 0.05); padding: 1.5rem; border-radius: 8px; border-left: 4px solid #D61504; height: 100%; width: 100%; display: flex; flex-direction: column; grid-column: 2; grid-row: 2;">
+                        <p style="font-weight: 600; margin-bottom: 0.8rem; color: #D61504;">💡 Por que R$ 600/mês (e não R$ 1.200)?</p>
+                        <p style="margin-bottom: 1rem;">Ticket médio de R$ 30-60 exige <strong>volume</strong> para justificar investimento alto. R$ 600/mês permite <strong>testar com baixo risco</strong>, validar conversão real, e escalar conforme capacidade operacional.</p>
+                        <p style="margin-bottom: 1rem;">Nos primeiros 60 dias, o investimento pode não gerar lucro líquido alto, <strong>MAS</strong> você constrói:</p>
+                        <ul style="list-style: none; padding-left: 1rem;">
+                            <li style="margin-bottom: 0.5rem;">✓ Audiência qualificada (retargeting futuro)</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Dados de público (quem converte melhor)</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Posicionamento digital (top of mind local)</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Infraestrutura de captação escalável</li>
+                        </ul>
+                        <p style="font-weight: 600; font-size: 1.05rem; margin-top: 1rem;">Tráfego pago não é "gastar dinheiro", é <span style="color: #D61504;">investir em infraestrutura de captação de clientes</span>.</p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 1.5rem; font-style: italic; color: #666; font-size: 0.9rem;">* Projeção baseada em dados reais de hamburguerias em cidades similares (2024-2025). Não é promessa. Sucesso depende de execução, qualidade operacional e consistência.</p>
             </div>
-            
-            <p style="margin-top: 1.5rem; font-style: italic; color: #666; font-size: 0.9rem;">* Projeção baseada em dados reais de hamburguerias em cidades similares (2024-2025). Não é promessa. Sucesso depende de execução, qualidade operacional e consistência.</p>
         </div>
 
         <h3 style="font-size: 1.4rem; margin: 2.5rem 0 1rem;">⏱ Expectativa Realista de Resultados</h3>
