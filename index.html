@@ -102,9 +102,9 @@
 
         /* Hero Section */
         .hero {
-            min-height: 70vh;
+            min-height: 80vh;
             background: linear-gradient(135deg, #D61504 0%, #000000 100%);
-            padding: 7rem 4rem 2rem;
+            padding: 9rem 4rem 2rem;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -112,18 +112,16 @@
             justify-content: flex-start;
         }
 
-        .hero::before {
-            content: '';
+        .background {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
-                linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%);
-            background-size: 100px 100px;
-            animation: moveBackground 20s linear infinite;
+            width: 100%;
+            height: 100%;
+            background: url('image/frango-hamburguer-ob-placa-de-madeira-alface-queijo-tomate-pepino-vista-lateral.jpg');
+            box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+            background-size: cover;
+            background-position: center;
         }
 
         @keyframes moveBackground {
@@ -757,6 +755,7 @@
     </nav>
 
     <div class="hero">
+        <div class="background"></div>
         <div class="hero-content">
             <div class="desktop-badge">⚠️ Visualização otimizada para Desktop</div>
             <div class="meta-info">Proposta exclusiva para Matheus H. Ulian • 22 de Dezembro de 2025</div>
@@ -765,7 +764,7 @@
         </div>
     </div>
 
-    <section id="analise" class="fade-in">
+    <section id="analise">
         <h2 class="section-title">Diagnóstico dos Canais Digitais</h2>
         
         <div class="cards-grid">
